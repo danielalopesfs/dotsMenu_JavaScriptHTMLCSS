@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #10131c;
+    min-height: 100vh;
+}
+
+.navegador {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background: #212532;
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    transition-delay: 0.8s;
+}
+
+.navegador.active {
+    width: 200px;
+    height: 200px;
+    transition-delay: 0s;
+}
+
+.navegador span {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 7px;
+    height: 7px;
+    background: whitesmoke;
+    border-radius: 50%;
+    transform: translate(calc(12px * var(--x)), calc(12px * var(--y)));
+    transition: transform 0.5s, width 0.5s, height 0.5s, background 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+}
+
+.navegador.active span {
+    transform: translate(calc(60px * var(--x)), calc(60px * var(--y)));
+    background: #333849;
+    width: 45px;
+    height: 45px;
+}
+
+.navegador span ion-icon {
+    transition: 0.5s;
+    font-size: 0em;
+}
+
+.navegador.active span ion-icon {
+    font-size: 1.35em;
+    color: white;
+}
+
+.navegador.active span:hover ion-icon {
+    color: #4F6EB6;
+    filter: drop-shadow(0 0 2px #4F6EB6) drop-shadow(0 0 5px #4F6EB6) drop-shadow(0 0 15px #4F6EB6)
+}
